@@ -61,8 +61,8 @@ all: main-build
 main-build: SSD1306_DotD_SPI.elf secondary-outputs
 
 # Tool invocations
-SSD1306_DotD_SPI.elf SSD1306_DotD_SPI.map: $(OBJS) $(USER_OBJS) D:\Users\wayp\STM32CubeIDE\workspace_1.12.0\SSD1306_DotD_SPI\STM32F767ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "SSD1306_DotD_SPI.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Users\wayp\STM32CubeIDE\workspace_1.12.0\SSD1306_DotD_SPI\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SSD1306_DotD_SPI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+SSD1306_DotD_SPI.elf SSD1306_DotD_SPI.map: $(OBJS) $(USER_OBJS) C:\Users\paul.way\STM32CubeIDE\workspace_1.10.0\SSD1306_DotD_SPI\STM32F767ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "SSD1306_DotD_SPI.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\paul.way\STM32CubeIDE\workspace_1.10.0\SSD1306_DotD_SPI\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SSD1306_DotD_SPI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
