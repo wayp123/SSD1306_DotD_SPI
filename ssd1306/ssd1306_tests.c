@@ -357,36 +357,56 @@ void ssd1306_TestDrawBitmap()
 }
 
 void ssd1306_TestAll() {
-    ssd1306_Init();
 
+	ssd1306_Init();
     ssd1306_TestFPS();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_TestBorder();
     ssd1306_TestFonts1();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_TestFonts2();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_TestFonts3();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_Fill(Black);
     ssd1306_TestRectangle();
     ssd1306_TestLine();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_Fill(Black);
     ssd1306_TestRectangleFill();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_Fill(Black);
     ssd1306_TestRectangleInvert();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_Fill(Black);
     ssd1306_TestPolyline();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_Fill(Black);
     ssd1306_TestArc();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_Fill(Black);
     ssd1306_TestCircle();
+
     HAL_Delay(3000);
+    ssd1306_Init();
     ssd1306_TestDrawBitmap();
     HAL_Delay(3000);
 }

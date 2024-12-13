@@ -63,15 +63,13 @@ void Error_Handler(void);
 #define MCO_GPIO_Port GPIOH
 #define OLED_CS_Pin GPIO_PIN_0
 #define OLED_CS_GPIO_Port GPIOC
-#define OLED_DC_Pin GPIO_PIN_1
+#define OLED_DC_Pin GPIO_PIN_2
 #define OLED_DC_GPIO_Port GPIOC
 #define Bus_Btn_Pin GPIO_PIN_0
 #define Bus_Btn_GPIO_Port GPIOA
-#define SPI_Led_Pin GPIO_PIN_1
-#define SPI_Led_GPIO_Port GPIOA
-#define I2C_Led_Pin GPIO_PIN_4
-#define I2C_Led_GPIO_Port GPIOA
-#define OLED_Res_Pin GPIO_PIN_0
+#define I2C_Led_Pin GPIO_PIN_0
+#define I2C_Led_GPIO_Port GPIOB
+#define OLED_Res_Pin GPIO_PIN_1
 #define OLED_Res_GPIO_Port GPIOB
 #define STLK_RX_Pin GPIO_PIN_8
 #define STLK_RX_GPIO_Port GPIOD
@@ -83,6 +81,8 @@ void Error_Handler(void);
 #define TCK_GPIO_Port GPIOA
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define SPI_Led_Pin GPIO_PIN_7
+#define SPI_Led_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

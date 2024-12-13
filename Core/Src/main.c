@@ -77,11 +77,18 @@ static void MX_SPI1_Init(void);
 void init() {
 	HAL_GPIO_WritePin(SPI_Led_GPIO_Port, SPI_Led_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(I2C_Led_GPIO_Port, I2C_Led_Pin, GPIO_PIN_RESET);
+
+	HAL_GPIO_WritePin(SPI_Led_GPIO_Port, SPI_Led_Pin, GPIO_PIN_SET);
+
+	HAL_Delay(1000);
+
+	//ssd1306_Init();
+	ssd1306_TestAll();
 }
 
 void loop() {
 	// Blue button pressed - repeast the test
-    if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET) {
+    if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_SET) {
 		// Indicate that test is running
 		HAL_GPIO_WritePin(SPI_Led_GPIO_Port, SPI_Led_Pin, GPIO_PIN_SET);
 
@@ -145,7 +152,7 @@ int main(void)
   {
 	  loop();
 
-	  /* USER CODE END WHILE */
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
@@ -280,7 +287,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -354,10 +361,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, OLED_CS_Pin|OLED_DC_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, SPI_Led_Pin|I2C_Led_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, OLED_Res_Pin|GPIO_PIN_14|GPIO_PIN_7, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, I2C_Led_Pin|OLED_Res_Pin|GPIO_PIN_14|SPI_Led_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : USER_Btn_Blue_Pin */
   GPIO_InitStruct.Pin = USER_Btn_Blue_Pin;
@@ -378,15 +382,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(Bus_Btn_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SPI_Led_Pin I2C_Led_Pin */
-  GPIO_InitStruct.Pin = SPI_Led_Pin|I2C_Led_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : OLED_Res_Pin PB14 PB7 */
-  GPIO_InitStruct.Pin = OLED_Res_Pin|GPIO_PIN_14|GPIO_PIN_7;
+  /*Configure GPIO pins : I2C_Led_Pin OLED_Res_Pin PB14 SPI_Led_Pin */
+  GPIO_InitStruct.Pin = I2C_Led_Pin|OLED_Res_Pin|GPIO_PIN_14|SPI_Led_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
