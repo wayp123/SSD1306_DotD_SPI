@@ -5,7 +5,7 @@ Tested on NUCLEO-F767ZI board (code imported to STM32CubeIDE).
 https://github.com/afiskon/stm32-ssd1306
 
 https://www.aliexpress.com/item/1005006100836064.html 
-selected SPI version, refresh rate 33hz according to SPi speed of 375 KBits/s
+selected SPI version, refresh rate 33hz according to SPI speed set to 375 KBits/s
 
 VSS 	3.3V 	(CN11-16)
 VDD	 Gnd	(CN11-71)
