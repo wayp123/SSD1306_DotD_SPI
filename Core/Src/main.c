@@ -80,7 +80,7 @@ void init() {
 
 	HAL_GPIO_WritePin(SPI_Led_GPIO_Port, SPI_Led_Pin, GPIO_PIN_SET);
 
-	HAL_Delay(1000);
+	HAL_Delay(1000); //give display module time to startup
 
 	//ssd1306_Init();
 	ssd1306_TestAll();
